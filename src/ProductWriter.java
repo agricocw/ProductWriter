@@ -26,7 +26,7 @@ public class ProductWriter {
     }
 
     // Method to get product data from the user
-    private static String getProductData(Scanner scanner) {
+    public static String getProductData(Scanner scanner) {
         String id = SafeInput.getNonZeroLenString(scanner, "Enter ID");
         String name = SafeInput.getNonZeroLenString(scanner, "Enter Name");
         String description = SafeInput.getNonZeroLenString(scanner, "Enter Description");
@@ -36,7 +36,7 @@ public class ProductWriter {
     }
 
     // Method to save data to a file
-    private static void saveDataToFile(ArrayList<String> data, String fileName) {
+    public static void saveDataToFile(ArrayList<String> data, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (String line : data) {
                 writer.write(line);
