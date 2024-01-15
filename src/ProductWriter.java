@@ -10,22 +10,22 @@ public class ProductWriter {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> productDataList = new ArrayList<>();
 
-        // Loop to input product data
+        
         do {
             String productData = getProductData(scanner);
             productDataList.add(productData);
         } while (SafeInput.getYNConfirm(scanner, "Do you want to enter another product?"));
 
-        // Get the file name from the user
+        
         String fileName = SafeInput.getNonZeroLenString(scanner, "Enter the file name to save the data");
 
-        // Save data to the file
+        
         saveDataToFile(productDataList, fileName);
 
         System.out.println("Data saved successfully!");
     }
 
-    // Method to get product data from the user
+    
     public static String getProductData(Scanner scanner) {
         String id = SafeInput.getNonZeroLenString(scanner, "Enter ID");
         String name = SafeInput.getNonZeroLenString(scanner, "Enter Name");
@@ -35,7 +35,7 @@ public class ProductWriter {
         return String.format("%s, %s, %s, %.2f", id, name, description, cost);
     }
 
-    // Method to save data to a file
+  
     public static void saveDataToFile(ArrayList<String> data, String fileName) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
             for (String line : data) {
